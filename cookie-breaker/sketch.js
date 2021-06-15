@@ -68,7 +68,7 @@ function setup() {
   const spacing = width / 30;
   const count = 3;
   const marginX = width / count - spacing * 2;
-  const marginY = (height - min(displayHeight * 0.7, 150)) / count - spacing * 2;
+  const marginY = (height - Math.min(displayHeight * 0.7, 150)) / count - spacing * 2;
 
   for (let i = 0; i < count; i++) {
     for (let j = 0; j < count; j++) {
@@ -123,7 +123,7 @@ function draw() {
 
         if (tick - cookies[i].activeStart > timeOut) {
           cookies[i].active = false;
-          if (!hasSuccess) {
+          if (!cookies[i].bite) {
             score -= 5;
           }
         }
